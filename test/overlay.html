@@ -1,0 +1,367 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>overlay</title>
+<link rel="stylesheet" href="../vendor/qunit/qunit.css">
+</head>
+<body>
+  <h1 id="qunit-header">QUnit Test Suite</h1>
+  <h2 id="qunit-banner"></h2>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests"></ol>
+  <div id="qunit-fixture">test markup</div>
+  <script src="../vendor/jquery/jquery.js"></script>
+  <script src="../vendor/seajs/sea.js"></script>
+  <script src="../vendor/qunit/qunit.js"></script>
+  <script>
+    QUnit.config.autostart = false;
+
+    seajs.config({
+      'base': '../sea-modules/',
+      'map': [
+        ['/sea-modules/jquery', '/vendor/jquery/jquery']
+      ],
+      'alias': {
+        '$': 'jquery',
+        'handlebars': 'gallery/handlebars/1.0.2/handlebars',
+        'widget': 'pandora/widget/1.0.0/widget'
+      }
+    });
+
+    seajs.use(['../src/overlay'], function (Overlay) {
+
+      'use strict';
+
+      QUnit.start();
+
+      var baseElement = $('<div/>').css({
+        width: 200,
+        height: 200,
+        border: '5px solid red',
+        top: 300,
+        left: 600,
+        position: 'absolute',
+        zIndex: 900
+      }).appendTo('body');
+
+      test('align/inner', function() {
+        // topleft
+        new Overlay({
+          baseXY: { x: 0, y: 0},
+          selfXY: { x: 0, y: 0},
+          width: 100,
+          height: 100
+        });
+        // topcenter
+        new Overlay({
+          baseXY: { x: 0.5, y: 0},
+          selfXY: { x: 0.5, y: 0},
+          width: 100,
+          height: 100
+        });
+        // topright
+        new Overlay({
+          baseXY: { x: 1, y: 0},
+          selfXY: { x: 1, y: 0},
+          width: 100,
+          height: 100
+        });
+        // middleleft
+        new Overlay({
+          baseXY: { x: 0, y: 0.5},
+          selfXY: { x: 0, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // middlecenter
+        new Overlay({
+          // baseXY: { x: 0.5, y: 0.5},
+          // selfXY: { x: 0.5, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // middleright
+        new Overlay({
+          baseXY: { x: 1, y: 0.5},
+          selfXY: { x: 1, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // bottomleft
+        new Overlay({
+          baseXY: { x: 0, y: 1},
+          selfXY: { x: 0, y: 1},
+          width: 100,
+          height: 100
+        });
+        // bottomcenter
+        new Overlay({
+          baseXY: { x: 0.5, y: 1},
+          selfXY: { x: 0.5, y: 1},
+          width: 100,
+          height: 100
+        });
+        // bottomright
+        new Overlay({
+          baseXY: { x: 1, y: 1},
+          selfXY: { x: 1, y: 1},
+          width: 100,
+          height: 100
+        });
+        ok( 1, '' );
+        // overlay.destroy();
+      });
+
+      test('align/inner/base', function() {
+        // topleft
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0, y: 0},
+          selfXY: { x: 0, y: 0},
+          width: 100,
+          height: 100
+        });
+        // topcenter
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0.5, y: 0},
+          selfXY: { x: 0.5, y: 0},
+          width: 100,
+          height: 100
+        });
+        // topright
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 1, y: 0},
+          selfXY: { x: 1, y: 0},
+          width: 100,
+          height: 100
+        });
+        // middleleft
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0, y: 0.5},
+          selfXY: { x: 0, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // middlecenter
+        new Overlay({
+          baseElement: baseElement,
+          // baseXY: { x: 0.5, y: 0.5},
+          // selfXY: { x: 0.5, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // middleright
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 1, y: 0.5},
+          selfXY: { x: 1, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // bottomleft
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0, y: 1},
+          selfXY: { x: 0, y: 1},
+          width: 100,
+          height: 100
+        });
+        // bottomcenter
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0.5, y: 1},
+          selfXY: { x: 0.5, y: 1},
+          width: 100,
+          height: 100
+        });
+        // bottomright
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 1, y: 1},
+          selfXY: { x: 1, y: 1},
+          width: 100,
+          height: 100
+        });
+        ok( 1, 'centermiddle' );
+        // overlay.destroy();
+      });
+
+      test('align/outer/base', function() {
+        // topleft
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0, y: 0},
+          selfXY: { x: 1, y: 1},
+          width: 100,
+          height: 100
+        });
+        // topcenter
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0.5, y: 0},
+          selfXY: { x: 0.5, y: 1},
+          width: 100,
+          height: 100
+        });
+        // topright
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 1, y: 0},
+          selfXY: { x: 0, y: 1},
+          width: 100,
+          height: 100
+        });
+        // middleleft
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0, y: 0.5},
+          selfXY: { x: 1, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // middlecenter there is no middlecenter
+        // new Overlay({
+        //   baseElement: baseElement,
+        //   // baseXY: { x: 0.5, y: 0.5},
+        //   // selfXY: { x: 0.5, y: 0.5},
+        //   width: 100,
+        //   height: 100
+        // });
+        // middleright
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 1, y: 0.5},
+          selfXY: { x: 0, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // bottomleft
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0, y: 1},
+          selfXY: { x: 1, y: 0},
+          width: 100,
+          height: 100
+        });
+        // bottomcenter
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0.5, y: 1},
+          selfXY: { x: 0.5, y: 0},
+          width: 100,
+          height: 100
+        });
+        // bottomright
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 1, y: 1},
+          selfXY: { x: 0, y: 0},
+          width: 100,
+          height: 100
+        });
+        ok( 1, 'centermiddle' );
+        // overlay.destroy();
+      });
+
+      test('align/middle/base', function() {
+        // topleft
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0, y: 0},
+          selfXY: { x: 0.5, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // topcenter
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0.5, y: 0},
+          selfXY: { x: 0.5, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // topright
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 1, y: 0},
+          selfXY: { x: 0.5, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // middleleft
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0, y: 0.5},
+          selfXY: { x: 0.5, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // middlecenter there is no middlecenter
+        // new Overlay({
+        //   baseElement: baseElement,
+        //   // baseXY: { x: 0.5, y: 0.5},
+        //   // selfXY: { x: 0.5, y: 0.5},
+        //   width: 100,
+        //   height: 100
+        // });
+        // middleright
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 1, y: 0.5},
+          selfXY: { x: 0.5, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // bottomleft
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0, y: 1},
+          selfXY: { x: 0.5, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // bottomcenter
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 0.5, y: 1},
+          selfXY: { x: 0.5, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        // bottomright
+        new Overlay({
+          baseElement: baseElement,
+          baseXY: { x: 1, y: 1},
+          selfXY: { x: 0.5, y: 0.5},
+          width: 100,
+          height: 100
+        });
+        ok( 1, 'centermiddle' );
+        // overlay.destroy();
+      });
+
+      asyncTest('show/hide', function() {
+        var overlay = new Overlay({width: 1, height: 1});
+        overlay.hide();
+        setTimeout(function () {
+          // equal( overlay.state(), Overlay.STATE.HIDDEN, '' );
+          ok( overlay.is(':hidden'), '' );
+          overlay.show();
+          setTimeout(function () {
+            // equal( overlay.state(), Overlay.STATE.HIDDEN, '' );
+            ok( overlay.is(':visible'), '' );
+            overlay.destroy();
+            start();
+          }, 1000);
+        }, 1000);
+      });
+
+    });
+  </script>
+</body>
+</html>
