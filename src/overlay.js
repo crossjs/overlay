@@ -27,25 +27,27 @@ var Overlay = Widget.extend({
     },
     // 样式前缀
     classPrefix: 'ue-overlay',
+    css: {
+      height: 'auto',
+      position: 'absolute',
+      width: 'auto',
+      zIndex: 901
+    },
     // 事件代理
     // delegates: { },
     // 对话框显示隐藏时的动画效果
     effect: 'fade',
-    height: 'auto',
     offset: {
       x: 0,
       y: 0
     },
-    position: 'absolute',
     selfXY: {
       // 对话框相对于原点位置的位移像素值
       x: 0.5,
       y: 0.5
-    },
+    }
     // 浮动层触发点
-    // trigger: null,
-    width: 'auto',
-    zIndex: 901
+    // trigger: null
   },
 
   setup: function () {
@@ -57,10 +59,6 @@ var Overlay = Widget.extend({
         tabIndex: -1
       })
       .css({
-        position: self.option('position'),
-        zIndex: self.option('zIndex'),
-        width: self.option('width'),
-        height: self.option('height'),
         visibility: 'hidden'
       });
 
@@ -78,7 +76,7 @@ var Overlay = Widget.extend({
       baseXY = self.option('baseXY'),
       selfElement = self.element,
       selfXY = self.option('selfXY'),
-      fixed = self.option('position') === 'fixed',
+      fixed = self.option('css/position') === 'fixed',
       offset = baseElement.offset() || { left: 0, top: 0 },
       left = offset.left + baseElement.outerWidth() * baseXY.x -
         selfElement.outerWidth() * selfXY.x +
@@ -103,6 +101,14 @@ var Overlay = Widget.extend({
   show: function () {
     Overlay.EFFECT[this.option('effect')].show.call(this);
 
+    /**
+     * 通知显示
+     *
+     * @event show
+     * @param {Object} e Event.
+     */
+    this.fire('show');
+
     return this;
   },
 
@@ -113,6 +119,14 @@ var Overlay = Widget.extend({
    */
   hide: function () {
     Overlay.EFFECT[this.option('effect')].hide.call(this);
+
+    /**
+     * 通知隐藏
+     *
+     * @event hide
+     * @param {Object} e Event.
+     */
+    this.fire('hide');
 
     return this;
   },
