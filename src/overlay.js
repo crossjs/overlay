@@ -77,11 +77,12 @@ var Overlay = Widget.extend({
       selfElement = self.element,
       selfXY = self.option('selfXY'),
       fixed = self.option('css/position') === 'fixed',
-      offset = baseElement.offset() || { left: 0, top: 0 },
-      left = offset.left + baseElement.outerWidth() * baseXY.x -
+      baseOffset = baseElement.offset() || { left: 0, top: 0 },
+      offset = self.option('offset'),
+      left = baseOffset.left + baseElement.outerWidth() * baseXY.x -
         selfElement.outerWidth() * selfXY.x +
         (fixed ? 0 : baseElement.scrollLeft()) + offset.x,
-      top = offset.top + baseElement.outerHeight() * baseXY.y -
+      top = baseOffset.top + baseElement.outerHeight() * baseXY.y -
         selfElement.outerHeight() * selfXY.y +
         (fixed ? 0 : baseElement.scrollTop()) + offset.y;
 
