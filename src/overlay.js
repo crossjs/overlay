@@ -22,8 +22,8 @@ var Overlay = Widget.extend({
     // baseElement: null,
     // 原点及位置
     baseXY: {
-      x: 0.5,
-      y: 0.5
+      x: 0,
+      y: 0
     },
     // 样式前缀
     classPrefix: 'ue-overlay',
@@ -38,13 +38,13 @@ var Overlay = Widget.extend({
     // 对话框显示隐藏时的动画效果
     effect: 'fade',
     offset: {
+      // 位置偏移，像素值
       x: 0,
       y: 0
     },
     selfXY: {
-      // 对话框相对于原点位置的位移像素值
-      x: 0.5,
-      y: 0.5
+      x: 0,
+      y: 0
     }
     // 浮动层触发点
     // trigger: null
