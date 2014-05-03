@@ -1,9 +1,9 @@
 #overlay
 
-[![Build Status](https://api.travis-ci.org/crossjs/overlay.png?branch=master)](http://travis-ci.org/crossjs/overlay)
-[![Coverage Status](https://coveralls.io/repos/crossjs/overlay/badge.png?branch=master)](https://coveralls.io/r/crossjs/overlay?branch=master)
+[![Build Status](https://api.travis-ci.org/pandorajs/overlay.png?branch=master)](http://travis-ci.org/pandorajs/overlay)
+[![Coverage Status](https://coveralls.io/repos/pandorajs/overlay/badge.png?branch=master)](https://coveralls.io/r/pandorajs/overlay?branch=master)
 
- > overlay, provides postioning, seajs module
+ > overlay, provides positioning, seajs module
 
 ##how to demo
 
@@ -17,6 +17,10 @@
 
 1. run `spm install pandora/overlay`
 1. write `require('pandora/overlay/VERSION.NUMBER/overlay')`
+
+##find examples
+
+1. view the source files in '/src'
 
 ##history
 
