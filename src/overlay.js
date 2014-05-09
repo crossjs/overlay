@@ -35,7 +35,7 @@ var Overlay = Widget.extend({
     },
     // 事件代理
     // delegates: { },
-    // 对话框显示隐藏时的动画效果
+    // 浮动层显示隐藏时的动画效果
     effect: 'none',
     offset: {
       // 位置偏移，像素值
@@ -95,7 +95,7 @@ var Overlay = Widget.extend({
   },
 
   /**
-   * 显示对话框
+   * 显示浮动层
    *
    * @method show
    */
@@ -114,7 +114,7 @@ var Overlay = Widget.extend({
   },
 
   /**
-   * 隐藏对话框
+   * 隐藏浮动层
    *
    * @method hide
    */
@@ -167,7 +167,7 @@ Overlay.EFFECT = {
     }
   },
 
-  // 对话框显示隐藏时的动画效果
+  // 浮动层显示隐藏时的动画效果
   fade: {
     show: function () {
       this.element.fadeIn(200, function () {
