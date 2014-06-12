@@ -36,7 +36,7 @@ var Overlay = Widget.extend({
     // 事件代理
     // delegates: { },
     // 浮动层显示隐藏时的动画效果
-    effect: 'none',
+    effect: 'fade',
     offset: {
       // 位置偏移，像素值
       x: 0,
@@ -51,10 +51,7 @@ var Overlay = Widget.extend({
   },
 
   setup: function () {
-    var self = this;
-
-    // element
-    self.element
+    this.element
       .attr({
         tabIndex: -1
       })
@@ -62,7 +59,7 @@ var Overlay = Widget.extend({
         visibility: 'hidden'
       });
 
-    self.option('trigger') || self.render();
+    this.render();
   },
 
   /**
@@ -100,7 +97,8 @@ var Overlay = Widget.extend({
    * @method show
    */
   show: function () {
-    Overlay.EFFECT[this.option('effect')].show.call(this);
+    Overlay.EFFECTS[this.option('effect')].show
+        .call(this, Overlay.superclass.show);
 
     /**
      * 通知显示
@@ -108,7 +106,7 @@ var Overlay = Widget.extend({
      * @event show
      * @param {Object} e Event.
      */
-    this.fire('show');
+    // this.fire('show');
 
     return this;
   },
@@ -119,7 +117,8 @@ var Overlay = Widget.extend({
    * @method hide
    */
   hide: function () {
-    Overlay.EFFECT[this.option('effect')].hide.call(this);
+    Overlay.EFFECTS[this.option('effect')].hide
+        .call(this, Overlay.superclass.hide);
 
     /**
      * 通知隐藏
@@ -127,7 +126,7 @@ var Overlay = Widget.extend({
      * @event hide
      * @param {Object} e Event.
      */
-    this.fire('hide');
+    // this.fire('hide');
 
     return this;
   },
@@ -140,9 +139,14 @@ var Overlay = Widget.extend({
     // 设置位置
     self.setPosition();
 
-    self.element.css({
-      visibility: 'visible'
-    });
+    // window.setTimeout(function () {
+      self.element.css({
+        display: 'none',
+        visibility: 'visible'
+      });
+    // }, 0);
+
+    !self.option('trigger') && self.show();
 
     return self;
   }
@@ -156,27 +160,31 @@ var Overlay = Widget.extend({
 //   HIDDEN: 2
 // };
 
-Overlay.EFFECT = {
+Overlay.EFFECTS = {
 
   none: {
-    show: function () {
-      this.element.show();
+    show: function (callback) {
+      // this.element.show();
+      callback.call(this);
     },
-    hide: function () {
-      this.element.hide();
+    hide: function (callback) {
+      // this.element.hide();
+      callback.call(this);
     }
   },
 
   // 浮动层显示隐藏时的动画效果
   fade: {
-    show: function () {
-      this.element.fadeIn(200, function () {
-        $(this).show();
+    show: function (callback) {
+      var self = this;
+      self.element.fadeIn(200, function () {
+        callback.call(self);
       });
     },
-    hide: function () {
-      this.element.fadeOut(200, function () {
-        $(this).hide();
+    hide: function (callback) {
+      var self = this;
+      self.element.fadeOut(200, function () {
+        callback.call(self);
       });
     }
   }

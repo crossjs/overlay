@@ -36,8 +36,7 @@
 
       QUnit.start();
 
-      var overlay,
-          baseElement = $('<div/>').css({
+      var baseElement = $('<div/>').css({
           width: 200,
           height: 200,
           border: '5px solid red',
@@ -83,10 +82,12 @@
         return o.left + e.outerWidth() - 100 + (out ? 100 : 0);
       }
 
+      document.body.style.overflow = 'scroll';
+
       module('inner');
       test('topleft', function() {
         // topleft
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseXY: { x: 0, y: 0},
           selfXY: { x: 0, y: 0},
           css: {
@@ -100,12 +101,14 @@
             top: top()
           }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('topcenter', function() {
         // topcenter
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseXY: { x: 0.5, y: 0},
           selfXY: { x: 0.5, y: 0},
           css: {
@@ -119,12 +122,14 @@
           top: top()
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('topright', function() {
         // topright
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseXY: { x: 1, y: 0},
           selfXY: { x: 1, y: 0},
           css: {
@@ -138,12 +143,14 @@
           top: top()
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('middleleft', function() {
         // middleleft
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseXY: { x: 0, y: 0.5},
           selfXY: { x: 0, y: 0.5},
           css: {
@@ -157,12 +164,14 @@
           top: middle()
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('middlecenter', function() {
         // middlecenter
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseXY: { x: 0.5, y: 0.5},
           selfXY: { x: 0.5, y: 0.5},
           css: {
@@ -176,12 +185,14 @@
           top: middle()
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('middleright', function() {
         // middleright
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseXY: { x: 1, y: 0.5},
           selfXY: { x: 1, y: 0.5},
           css: {
@@ -195,12 +206,14 @@
           top: middle()
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('bottomleft', function() {
         // bottomleft
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseXY: { x: 0, y: 1},
           selfXY: { x: 0, y: 1},
           css: {
@@ -214,12 +227,14 @@
           top: bottom()
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('bottomcenter', function() {
         // bottomcenter
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseXY: { x: 0.5, y: 1},
           selfXY: { x: 0.5, y: 1},
           css: {
@@ -233,12 +248,14 @@
           top: bottom()
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('bottomright', function() {
         // bottomright
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseXY: { x: 1, y: 1},
           selfXY: { x: 1, y: 1},
           css: {
@@ -252,13 +269,15 @@
           top: bottom()
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       module('inner/base');
       test('topleft', function() {
         // topleft
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 0, y: 0},
           selfXY: { x: 0, y: 0},
@@ -273,12 +292,14 @@
             top: top(baseElement)
           }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('topcenter', function() {
         // topcenter
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 0.5, y: 0},
           selfXY: { x: 0.5, y: 0},
@@ -293,12 +314,14 @@
           top: top(baseElement)
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('topright', function() {
         // topright
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 1, y: 0},
           selfXY: { x: 1, y: 0},
@@ -313,12 +336,14 @@
           top: top(baseElement)
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('middleleft', function() {
         // middleleft
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 0, y: 0.5},
           selfXY: { x: 0, y: 0.5},
@@ -333,12 +358,14 @@
           top: middle(baseElement)
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('middlecenter', function() {
         // middlecenter
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 0.5, y: 0.5},
           selfXY: { x: 0.5, y: 0.5},
@@ -353,12 +380,14 @@
           top: middle(baseElement)
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('middleright', function() {
         // middleright
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 1, y: 0.5},
           selfXY: { x: 1, y: 0.5},
@@ -373,12 +402,14 @@
           top: middle(baseElement)
         }, '' );
 
-        // overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('bottomleft', function() {
         // bottomleft
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 0, y: 1},
           selfXY: { x: 0, y: 1},
@@ -393,12 +424,14 @@
           top: bottom(baseElement)
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('bottomcenter', function() {
         // bottomcenter
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 0.5, y: 1},
           selfXY: { x: 0.5, y: 1},
@@ -413,12 +446,14 @@
           top: bottom(baseElement)
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('bottomright', function() {
         // bottomright
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 1, y: 1},
           selfXY: { x: 1, y: 1},
@@ -433,13 +468,15 @@
           top: bottom(baseElement)
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       module('outer/base')
       test('topleft bottomright', function() {
         // topleft
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 0, y: 0},
           selfXY: { x: 1, y: 1},
@@ -454,12 +491,14 @@
             top: top(baseElement, true)
           }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('topcenter bottomcenter', function() {
         // topcenter
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 0.5, y: 0},
           selfXY: { x: 0.5, y: 1},
@@ -474,12 +513,14 @@
           top: top(baseElement, true)
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('topright bottomleft', function() {
         // topright
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 1, y: 0},
           selfXY: { x: 0, y: 1},
@@ -494,12 +535,14 @@
           top: top(baseElement, true)
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('middleleft middleright', function() {
         // middleleft
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 0, y: 0.5},
           selfXY: { x: 1, y: 0.5},
@@ -514,12 +557,14 @@
           top: middle(baseElement, true)
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('middleright middleleft', function() {
         // middleright
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 1, y: 0.5},
           selfXY: { x: 0, y: 0.5},
@@ -534,12 +579,14 @@
           top: middle(baseElement, true)
         }, '' );
 
-        // overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('bottomleft topright', function() {
         // bottomleft
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 0, y: 1},
           selfXY: { x: 1, y: 0},
@@ -554,12 +601,14 @@
           top: bottom(baseElement, true)
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('bottomcenter topcenter', function() {
         // bottomcenter
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 0.5, y: 1},
           selfXY: { x: 0.5, y: 0},
@@ -574,12 +623,14 @@
           top: bottom(baseElement, true)
         }, '' );
 
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
       });
 
       test('bottomright topleft', function() {
         // bottomright
-        overlay = new Overlay({
+        var overlay = new Overlay({
           baseElement: baseElement,
           baseXY: { x: 1, y: 1},
           selfXY: { x: 0, y: 0},
@@ -594,33 +645,13 @@
           top: bottom(baseElement, true)
         }, '' );
 
-        overlay.destroy();
-      });
-
-      asyncTest('show/hide', function() {
-        overlay = new Overlay({
-            css: {
-              width: 1,
-              height: 1
-            }
-          });
-        overlay.hide();
         setTimeout(function () {
-          // equal( overlay.state(), Overlay.STATE.HIDDEN, '' );
-          ok( overlay.is(':hidden'), '' );
-          overlay.show();
-          setTimeout(function () {
-            // equal( overlay.state(), Overlay.STATE.HIDDEN, '' );
-            ok( overlay.is(':visible'), '' );
-            overlay.destroy();
-            baseElement.remove();
-            start();
-          }, 1000);
+          overlay.destroy();
         }, 1000);
       });
 
       test('show/hide/effect/none', function() {
-        overlay = new Overlay({
+        var overlay = new Overlay({
             css: {
               width: 1,
               height: 1
@@ -631,7 +662,31 @@
         ok( overlay.is(':hidden'), '' );
         overlay.show();
         ok( overlay.is(':visible'), '' );
-        overlay.destroy();
+        setTimeout(function () {
+          overlay.destroy();
+        }, 1000);
+      });
+
+      asyncTest('show/hide', function() {
+        var overlay = new Overlay({
+            css: {
+              width: 1,
+              height: 1
+            }
+          });
+        overlay.hide();
+        setTimeout(function () {
+          ok( overlay.is(':hidden'), '' );
+          overlay.show();
+          setTimeout(function () {
+            ok( overlay.is(':visible'), '' );
+            setTimeout(function () {
+              overlay.destroy();
+            }, 1000);
+            baseElement.remove();
+            start();
+          }, 1000);
+        }, 1000);
       });
 
     });
