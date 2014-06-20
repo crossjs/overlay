@@ -131,6 +131,28 @@ var Overlay = Widget.extend({
     return this;
   },
 
+  /**
+   * element 上添加动画效果
+   *
+   * @method animate
+   */
+  animate: function () {
+    this.element.animate.apply(this.element, arguments);
+
+    return this;
+  },
+
+  /**
+   * 停止 element 上的动画效果，并立即跳转到最终状态
+   *
+   * @method stop
+   */
+  stop: function () {
+    this.element.stop(false, true);
+
+    return this;
+  },
+
   render: function () {
     var self = this;
 
