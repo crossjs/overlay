@@ -100,14 +100,6 @@ var Overlay = Widget.extend({
     Overlay.EFFECTS[this.option('effect')].show
         .call(this, Overlay.superclass.show);
 
-    /**
-     * 通知显示
-     *
-     * @event show
-     * @param {Object} e Event.
-     */
-    // this.fire('show');
-
     return this;
   },
 
@@ -119,14 +111,6 @@ var Overlay = Widget.extend({
   hide: function () {
     Overlay.EFFECTS[this.option('effect')].hide
         .call(this, Overlay.superclass.hide);
-
-    /**
-     * 通知隐藏
-     *
-     * @event hide
-     * @param {Object} e Event.
-     */
-    // this.fire('hide');
 
     return this;
   },
@@ -174,13 +158,6 @@ var Overlay = Widget.extend({
   }
 
 });
-
-// Overlay.STATE = {
-//   INITIAL: -1,
-//   READY: 0,
-//   VISIBLE: 1,
-//   HIDDEN: 2
-// };
 
 Overlay.EFFECTS = {
 
