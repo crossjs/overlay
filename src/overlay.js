@@ -19,6 +19,7 @@ var $ = require('$'),
 var Overlay = Widget.extend({
 
   defaults: {
+    autoShow: true,
     // baseElement: null,
     // 原点及位置
     baseXY: {
@@ -152,6 +153,7 @@ var Overlay = Widget.extend({
       });
     // }, 0);
 
+    self.option('autoShow') &&
     !self.option('trigger') && self.show();
 
     return self;
