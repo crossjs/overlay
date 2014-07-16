@@ -97,7 +97,11 @@ var Overlay = Widget.extend({
    *
    * @method show
    */
-  show: function () {
+  show: function (callback) {
+    if (callback) {
+      return this.on('show', callback);
+    }
+
     Overlay.EFFECTS[this.option('effect')].show
         .call(this, Overlay.superclass.show);
 
@@ -109,7 +113,11 @@ var Overlay = Widget.extend({
    *
    * @method hide
    */
-  hide: function () {
+  hide: function (callback) {
+    if (callback) {
+      return this.on('hide', callback);
+    }
+
     Overlay.EFFECTS[this.option('effect')].hide
         .call(this, Overlay.superclass.hide);
 
@@ -165,11 +173,9 @@ Overlay.EFFECTS = {
 
   none: {
     show: function (callback) {
-      // this.element.show();
       callback.call(this);
     },
     hide: function (callback) {
-      // this.element.hide();
       callback.call(this);
     }
   },
