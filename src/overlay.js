@@ -8,7 +8,7 @@ define(function (require, exports, module) {
 'use strict';
 
 var $ = require('$'),
-  Widget = require('widget');
+    Widget = require('widget');
 
 /**
  * Overlay
@@ -77,10 +77,12 @@ var Overlay = Widget.extend({
       fixed = self.option('css/position') === 'fixed',
       baseOffset = baseElement.offset() || { left: 0, top: 0 },
       offset = self.option('offset'),
-      left = baseOffset.left + baseElement.outerWidth() * baseXY.x -
+      left = baseOffset.left + 
+        baseElement.outerWidth() * baseXY.x -
         selfElement.outerWidth() * selfXY.x +
         (fixed ? 0 : baseElement.scrollLeft()) + offset.x,
-      top = baseOffset.top + baseElement.outerHeight() * baseXY.y -
+      top = baseOffset.top +
+        baseElement.outerHeight() * baseXY.y -
         selfElement.outerHeight() * selfXY.y +
         (fixed ? 0 : baseElement.scrollTop()) + offset.y;
 
