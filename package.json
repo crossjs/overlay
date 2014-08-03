@@ -47,7 +47,6 @@
     "output": [ "overlay.js" ],
     "alias": {
       "$": "$",
-      "handlebars": "gallery/handlebars/1.3.0/handlebars-runtime",
       "widget": "pandora/widget/1.0.0/widget"
     }
   }
