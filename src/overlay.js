@@ -12,21 +12,46 @@ var $ = require('$'),
 
 /**
  * Overlay
- *
+ * 浮动层基类，提供显示、隐藏、设定位置、以及动画效果等，通过扩展可实现alert、confirm、dialog、tips等功能。
+ * 
  * @class Overlay
+ * @extends Widget
  * @constructor
  */
 var Overlay = Widget.extend({
 
   defaults: {
+
+    /**
+     * 实例化后是否自动显示
+     * 
+     * @attribute autoShow
+     * @default true
+     * @type {Boolean}
+     */
     autoShow: true,
+
     // baseElement: null,
-    // 原点及位置
+    
+    /**
+     *原点位置，浮层以此点为参照点
+     * 
+     * @attribute baseXY
+     * @default {x:0,y:0}
+     * @type {Object}
+     */
     baseXY: {
       x: 0,
       y: 0
     },
-    // 样式前缀
+
+    /**
+     * 样式前缀
+     *
+     * @attribute classPrefix
+     * @default ue-overlay
+     * @type {String}
+     */
     classPrefix: 'ue-overlay',
     css: {
       height: 'auto',
@@ -34,21 +59,50 @@ var Overlay = Widget.extend({
       width: 'auto',
       zIndex: 901
     },
+
     // 事件代理
     // delegates: { },
-    // 浮动层显示隐藏时的动画效果
+    
+    /**
+     * 浮动层显示隐藏时的动画效果，可以是fade或none
+     *
+     * @attribute effect
+     * @default fade
+     * @type {String}
+     */
     effect: 'fade',
+
+    /**
+     * 位置偏移，单位为像素
+     *
+     * @attribute offset
+     * @default {x:0,y:0}
+     * @type Object
+     */
     offset: {
-      // 位置偏移，像素值
       x: 0,
       y: 0
     },
+
+    /**
+     * selfXY
+     * @attribute selfXY
+     * @default {x:0,y:0}
+     * @type {Object}
+     */
     selfXY: {
       x: 0,
       y: 0
     }
-    // 浮动层触发点
-    // trigger: null
+
+    /**
+     * 对话框触发点
+     * 
+     * @attribute trigger
+     * @default null
+     * @type {Object}
+     */
+    //trigger: null
   },
 
   setup: function () {
@@ -64,9 +118,10 @@ var Overlay = Widget.extend({
   },
 
   /**
-   * 设定位置（left 与 top）
+   * 更新浮层位置（left 与 top）
    *
    * @method setPosition
+   * @chainable
    */
   setPosition: function () {
     var self = this,
@@ -98,6 +153,8 @@ var Overlay = Widget.extend({
    * 显示浮动层
    *
    * @method show
+   * @param {Function} [callback] 显示后的回调方法
+   * @return {Object} 类实例
    */
   show: function (callback) {
     if (callback) {
@@ -114,6 +171,8 @@ var Overlay = Widget.extend({
    * 隐藏浮动层
    *
    * @method hide
+   * @param {Function} [callback] 隐藏后的回调方法
+   * @chainable
    */
   hide: function (callback) {
     if (callback) {
@@ -127,9 +186,10 @@ var Overlay = Widget.extend({
   },
 
   /**
-   * element 上添加动画效果
+   * element 上添加动画效果,参数同jquery的animate方法
    *
    * @method animate
+   * @chainable
    */
   animate: function () {
     this.element.animate.apply(this.element, arguments);
@@ -141,6 +201,7 @@ var Overlay = Widget.extend({
    * 停止 element 上的动画效果，并立即跳转到最终状态
    *
    * @method stop
+   * @chainable
    */
   stop: function () {
     this.element.stop(false, true);
@@ -171,8 +232,16 @@ var Overlay = Widget.extend({
 
 });
 
-Overlay.EFFECTS = {
 
+Overlay.EFFECTS = {
+  /**
+   * 直接显示或隐藏，无过渡效果。
+   * 
+   * @property Overlay.EFFECTS.none
+   * @static
+   * @private
+   * @type {Object}
+   */
   none: {
     show: function (callback) {
       callback.call(this);
@@ -182,7 +251,14 @@ Overlay.EFFECTS = {
     }
   },
 
-  // 浮动层显示隐藏时的动画效果
+  /**
+   * 浮动层以200毫秒渐隐或渐现。
+   * 
+   * @property Overlay.EFFECTS.fade
+   * @static
+   * @private
+   * @type {Object}
+   */
   fade: {
     show: function (callback) {
       var self = this;
