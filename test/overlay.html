@@ -47,41 +47,42 @@
         }).appendTo('body');
 
       function top (e, out) {
-        e || (e = $(window));
+        e || (e = $(document));
         var o = e.offset() || {left:0,top:0};
         return o.top - (out ? 100 : 0);
       }
 
       function middle (e, out) {
-        e || (e = $(window));
+        e || (e = $(document));
         var o = e.offset() || {left:0,top:0};
         return o.top + e.outerHeight() / 2 - 50;
       }
 
       function bottom (e, out) {
-        e || (e = $(window));
+        e || (e = $(document));
         var o = e.offset() || {left:0,top:0};
         return o.top + e.outerHeight() - 100 + (out ? 100 : 0);
       }
 
       function left (e, out) {
-        e || (e = $(window));
+        e || (e = $(document));
         var o = e.offset() || {left:0,top:0};
         return o.left - (out ? 100 : 0);
       }
 
       function center (e, out) {
-        e || (e = $(window));
+        e || (e = $(document));
         var o = e.offset() || {left:0,top:0};
         return o.left + e.outerWidth() / 2 - 50;
       }
 
       function right (e, out) {
-        e || (e = $(window));
+        e || (e = $(document));
         var o = e.offset() || {left:0,top:0};
         return o.left + e.outerWidth() - 100 + (out ? 100 : 0);
       }
 
+      document.body.style.height = '1300px';
       document.body.style.overflow = 'scroll';
 
       module('inner');
@@ -91,6 +92,7 @@
           baseXY: { x: 0, y: 0},
           selfXY: { x: 0, y: 0},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -112,6 +114,7 @@
           baseXY: { x: 0.5, y: 0},
           selfXY: { x: 0.5, y: 0},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -133,6 +136,7 @@
           baseXY: { x: 1, y: 0},
           selfXY: { x: 1, y: 0},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -154,6 +158,7 @@
           baseXY: { x: 0, y: 0.5},
           selfXY: { x: 0, y: 0.5},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -175,6 +180,7 @@
           baseXY: { x: 0.5, y: 0.5},
           selfXY: { x: 0.5, y: 0.5},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -196,6 +202,7 @@
           baseXY: { x: 1, y: 0.5},
           selfXY: { x: 1, y: 0.5},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -217,6 +224,7 @@
           baseXY: { x: 0, y: 1},
           selfXY: { x: 0, y: 1},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -238,6 +246,7 @@
           baseXY: { x: 0.5, y: 1},
           selfXY: { x: 0.5, y: 1},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -259,6 +268,7 @@
           baseXY: { x: 1, y: 1},
           selfXY: { x: 1, y: 1},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -282,6 +292,7 @@
           baseXY: { x: 0, y: 0},
           selfXY: { x: 0, y: 0},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -304,6 +315,7 @@
           baseXY: { x: 0.5, y: 0},
           selfXY: { x: 0.5, y: 0},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -326,6 +338,7 @@
           baseXY: { x: 1, y: 0},
           selfXY: { x: 1, y: 0},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -348,6 +361,7 @@
           baseXY: { x: 0, y: 0.5},
           selfXY: { x: 0, y: 0.5},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -370,6 +384,7 @@
           baseXY: { x: 0.5, y: 0.5},
           selfXY: { x: 0.5, y: 0.5},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -392,6 +407,7 @@
           baseXY: { x: 1, y: 0.5},
           selfXY: { x: 1, y: 0.5},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -414,6 +430,7 @@
           baseXY: { x: 0, y: 1},
           selfXY: { x: 0, y: 1},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -436,6 +453,7 @@
           baseXY: { x: 0.5, y: 1},
           selfXY: { x: 0.5, y: 1},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -458,6 +476,7 @@
           baseXY: { x: 1, y: 1},
           selfXY: { x: 1, y: 1},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -481,6 +500,7 @@
           baseXY: { x: 0, y: 0},
           selfXY: { x: 1, y: 1},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -503,6 +523,7 @@
           baseXY: { x: 0.5, y: 0},
           selfXY: { x: 0.5, y: 1},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -525,6 +546,7 @@
           baseXY: { x: 1, y: 0},
           selfXY: { x: 0, y: 1},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -547,6 +569,7 @@
           baseXY: { x: 0, y: 0.5},
           selfXY: { x: 1, y: 0.5},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -569,6 +592,7 @@
           baseXY: { x: 1, y: 0.5},
           selfXY: { x: 0, y: 0.5},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -591,6 +615,7 @@
           baseXY: { x: 0, y: 1},
           selfXY: { x: 1, y: 0},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -613,6 +638,7 @@
           baseXY: { x: 0.5, y: 1},
           selfXY: { x: 0.5, y: 0},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -635,6 +661,7 @@
           baseXY: { x: 1, y: 1},
           selfXY: { x: 0, y: 0},
           css: {
+            background: 'rgba(0, 255, 0, 0.8)',
             width: 100,
             height: 100
           }
@@ -653,6 +680,7 @@
       test('show/hide/effect/none', function() {
         var overlay = new Overlay({
             css: {
+              background: 'rgba(0, 255, 0, 0.8)',
               width: 1,
               height: 1
             },
@@ -670,6 +698,7 @@
       asyncTest('show/hide', function() {
         var overlay = new Overlay({
             css: {
+              background: 'rgba(0, 255, 0, 0.8)',
               width: 1,
               height: 1
             }

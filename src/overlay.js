@@ -125,21 +125,40 @@ var Overlay = Widget.extend({
    */
   setPosition: function () {
     var self = this,
-      baseElement = $(self.option('baseElement') || self.viewport),
+      left, top,
+
+      baseElement = self.option('baseElement'),
       baseXY = self.option('baseXY'),
+      baseOffset,
+
       selfElement = self.element,
       selfXY = self.option('selfXY'),
-      fixed = self.option('css/position') === 'fixed',
-      baseOffset = baseElement.offset() || { left: 0, top: 0 },
-      offset = self.option('offset'),
-      left = baseOffset.left + 
-        baseElement.outerWidth() * baseXY.x -
-        selfElement.outerWidth() * selfXY.x +
-        (fixed ? 0 : baseElement.scrollLeft()) + offset.x,
-      top = baseOffset.top +
-        baseElement.outerHeight() * baseXY.y -
-        selfElement.outerHeight() * selfXY.y +
-        (fixed ? 0 : baseElement.scrollTop()) + offset.y;
+      selfOffset = self.option('offset'),
+
+      fixed = self.option('css/position') === 'fixed';
+
+    if (baseElement) {
+      baseElement = $(baseElement);
+      baseOffset = baseElement.offset();
+    } else {
+      baseElement = $(self.document);
+      baseOffset = { left: 0, top: 0 };
+    }
+
+    if (!fixed) {
+      baseOffset.left += baseElement.scrollLeft();
+      baseOffset.top += baseElement.scrollTop();
+    }
+
+    left = baseOffset.left +
+      baseElement.outerWidth() * baseXY.x -
+      selfElement.outerWidth() * selfXY.x +
+      (fixed ? 0 : baseElement.scrollLeft()) + selfOffset.x;
+
+    top = baseOffset.top +
+      baseElement.outerHeight() * baseXY.y -
+      selfElement.outerHeight() * selfXY.y +
+      (fixed ? 0 : baseElement.scrollTop()) + selfOffset.y;
 
     selfElement.css({
         left: Math.max(left, 0),
