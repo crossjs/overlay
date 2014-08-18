@@ -13,7 +13,7 @@ var $ = require('$'),
 /**
  * Overlay
  * 浮动层基类，提供显示、隐藏、设定位置、以及动画效果等，通过扩展可实现alert、confirm、dialog、tips等功能。
- * 
+ *
  * @class Overlay
  * @extends Widget
  * @constructor
@@ -24,7 +24,7 @@ var Overlay = Widget.extend({
 
     /**
      * 实例化后是否自动显示
-     * 
+     *
      * @attribute autoShow
      * @default true
      * @type {Boolean}
@@ -32,10 +32,10 @@ var Overlay = Widget.extend({
     autoShow: true,
 
     // baseElement: null,
-    
+
     /**
      *原点位置，浮层以此点为参照点
-     * 
+     *
      * @attribute baseXY
      * @default {x:0,y:0}
      * @type {Object}
@@ -62,7 +62,7 @@ var Overlay = Widget.extend({
 
     // 事件代理
     // delegates: { },
-    
+
     /**
      * 浮动层显示隐藏时的动画效果，可以是fade或none
      *
@@ -97,7 +97,7 @@ var Overlay = Widget.extend({
 
     /**
      * 对话框触发点
-     * 
+     *
      * @attribute trigger
      * @default null
      * @type {Object}
@@ -127,23 +127,15 @@ var Overlay = Widget.extend({
     var self = this,
       left, top,
 
-      baseElement = self.option('baseElement'),
+      baseElement = $(self.option('baseElement') || self.document),
       baseXY = self.option('baseXY'),
-      baseOffset,
+      baseOffset = baseElement.offset() || { left: 0, top: 0 },
 
       selfElement = self.element,
       selfXY = self.option('selfXY'),
       selfOffset = self.option('offset'),
 
       fixed = self.option('css/position') === 'fixed';
-
-    if (baseElement) {
-      baseElement = $(baseElement);
-      baseOffset = baseElement.offset();
-    } else {
-      baseElement = $(self.document);
-      baseOffset = { left: 0, top: 0 };
-    }
 
     if (!fixed) {
       baseOffset.left += baseElement.scrollLeft();
@@ -153,12 +145,12 @@ var Overlay = Widget.extend({
     left = baseOffset.left +
       baseElement.outerWidth() * baseXY.x -
       selfElement.outerWidth() * selfXY.x +
-      (fixed ? 0 : baseElement.scrollLeft()) + selfOffset.x;
+      selfOffset.x;
 
     top = baseOffset.top +
       baseElement.outerHeight() * baseXY.y -
       selfElement.outerHeight() * selfXY.y +
-      (fixed ? 0 : baseElement.scrollTop()) + selfOffset.y;
+      selfOffset.y;
 
     selfElement.css({
         left: Math.max(left, 0),
@@ -255,7 +247,7 @@ var Overlay = Widget.extend({
 Overlay.EFFECTS = {
   /**
    * 直接显示或隐藏，无过渡效果。
-   * 
+   *
    * @property Overlay.EFFECTS.none
    * @static
    * @private
@@ -272,7 +264,7 @@ Overlay.EFFECTS = {
 
   /**
    * 浮动层以200毫秒渐隐或渐现。
-   * 
+   *
    * @property Overlay.EFFECTS.fade
    * @static
    * @private
