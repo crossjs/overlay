@@ -5,3 +5,4 @@ report
 dist
 doc
 spm_modules
+.DS_Store
