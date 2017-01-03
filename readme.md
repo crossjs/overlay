@@ -1,5 +1,4 @@
-# pandora-overlay [![spm version](http://127.0.0.1:3000/badge/pandora-overlay)](http://127.0.0.1:3000/package/pandora-overlay)
-
+# overlay
 ---
 
 
@@ -7,12 +6,12 @@
 ## Install
 
 ```
-$ spm install pandora-overlay --save
+$ npm install pandora-overlay --save
 ```
 
 ## Usage
 
 ```js
-var pandoraOverlay = require('pandora-overlay');
+var Overlay = require('pandora-overlay');
 // use pandoraOverlay
 ```

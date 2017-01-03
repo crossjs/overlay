@@ -6,3 +6,4 @@ dist
 doc
 spm_modules
 .DS_Store
+npm-debug.log

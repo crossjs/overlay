@@ -1,9 +1,10 @@
 {
   "name": "pandora-overlay",
   "version": "1.2.0",
-  "description": "",
+  "description": "基础浮层组件，具有显示，隐藏，定位特性",
   "keywords": ["pandora","overlay"],
   "homepage": "https://github.com/pandorajs/overlay",
+  "main": "src/index",
   "author": {
     "name": "pandorajs",
     "url": "https://github.com/pandorajs"
@@ -20,7 +21,7 @@
   },
   "licenses": "MIT",
   "spm": {
-    "main": "overlay.js",
+    "main": "src/index.js",
     "dependencies": {
       "jquery": "1.11.1",
       "pandora-widget": "1.1.0"
