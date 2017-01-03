@@ -1,53 +1,39 @@
 {
-  "name": "overlay",
-  "version": "1.0.0",
-  "description": "overlay, provides postioning",
-  "keywords": [ "overlay", "seajs", "modules" ],
+  "name": "pandora-overlay",
+  "version": "1.1.0",
+  "description": "",
+  "keywords": ["pandora","overlay"],
   "homepage": "https://github.com/pandorajs/overlay",
-  "bugs": {
-    "url": "https://github.com/pandorajs/overlay/issues"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/pandorajs/overlay/blob/master/LICENSE-MIT"
-    }
-  ],
   "author": {
     "name": "pandorajs",
     "url": "https://github.com/pandorajs"
   },
-  "main": "Gruntfile.js",
+  "owners" : [{
+    "name" : "pandorajs"
+  }],
   "repository": {
     "type": "git",
     "url": "git://github.com/pandorajs/overlay.git"
   },
-  "scripts": {
-    "test": "grunt qunit"
+  "bugs": {
+    "url": "https://github.com/pandorajs/article/overlay"
   },
-  "engines": {
-    "node": ">= 0.8.0"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "grunt": "*",
-    "grunt-cmd-transport": "*",
-    "grunt-cmd-concat": "*",
-    "grunt-contrib-clean": "*",
-    "grunt-contrib-copy": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-yuidoc": "*",
-    "grunt-coveralls": "*",
-    "grunt-qunit-istanbul": "*",
-    "matchdep": "*"
-  },
-  "family": "pandora",
+  "licenses": "MIT",
   "spm": {
-    "output": [ "overlay.js" ],
-    "alias": {
-      "$": "$",
-      "widget": "pandora/widget/1.0.0/widget"
+    "main": "overlay.js",
+    "dependencies": {
+      "jquery": "1.11.1",
+      "pandora-widget": "1.1.0"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
     }
+  },
+  "devDependencies": {
+    "spm": "3"
+  },
+  "scripts": {
+    "test": "spm test",
+    "build": "spm build"
   }
 }

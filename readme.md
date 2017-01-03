@@ -1,27 +1,18 @@
-#overlay
+# pandora-overlay [![spm version](http://127.0.0.1:3000/badge/pandora-overlay)](http://127.0.0.1:3000/package/pandora-overlay)
 
-[![Build Status](https://api.travis-ci.org/pandorajs/overlay.png?branch=master)](http://travis-ci.org/pandorajs/overlay)
-[![Coverage Status](https://coveralls.io/repos/pandorajs/overlay/badge.png?branch=master)](https://coveralls.io/r/pandorajs/overlay?branch=master)
+---
 
- > overlay, provides positioning, seajs module
 
-##how to demo
 
-1. checkout
-1. run `npm install`
-1. run `spm install`
-1. run `grunt`
-1. view files in `/demo`
+## Install
 
-##how to use
+```
+$ spm install pandora-overlay --save
+```
 
-1. run `spm install pandora/overlay`
-1. write `require('pandora/overlay/VERSION.NUMBER/overlay')`
+## Usage
 
-##find examples
-
-1. view the source files in '/src'
-
-##history
-
-- 1.0.0 - release
+```js
+var pandoraOverlay = require('pandora-overlay');
+// use pandoraOverlay
+```
