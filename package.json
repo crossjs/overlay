@@ -1,6 +1,6 @@
 {
   "name": "pandora-overlay",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "基础浮层组件，具有显示，隐藏，定位特性",
   "keywords": ["pandora","overlay"],
   "homepage": "https://github.com/pandorajs/overlay",
@@ -72,6 +72,6 @@
   },
   "dependencies": {
     "jquery": "^1.11.1",
-    "pandora-widget": "^1.2.1"
+    "pandora-widget": "^1.2.2"
   }
 }
